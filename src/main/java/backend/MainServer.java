@@ -1,4 +1,4 @@
-package katalyst;
+package backend;
 import static spark.Spark.*;
 import java.io.IOException;
 import java.io.InputStream;

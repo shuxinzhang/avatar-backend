@@ -1,4 +1,4 @@
-package katalyst;
+package backend;
 
 import java.io.IOException;
 import java.nio.file.Files;
