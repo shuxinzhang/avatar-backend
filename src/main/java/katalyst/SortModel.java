@@ -25,7 +25,6 @@ public class SortModel {
 	public static Comparator<Avatar> eyeComparator = new Comparator<Avatar>() {
 		@Override
 		public int compare(Avatar o1, Avatar o2) {
-			//System.out.println("COMPARING");
 			return o1.eye - o2.eye;
 		}
 		
@@ -49,10 +48,6 @@ public class SortModel {
 		Avatar a3 = new Avatar(3,1,2,"");
 		Avatar[] array = {a1,a2,a3};
 		SortModel model = new SortModel(array);
-		printArray(model.sortAvatar("eye"));
-		printArray(model.sortAvatar("nose"));
-		printArray(model.sortAvatar("mouth"));
-
 	}
 	
 	

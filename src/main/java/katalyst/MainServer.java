@@ -1,14 +1,13 @@
 package katalyst;
 import static spark.Spark.*;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 
 public class MainServer {
@@ -20,11 +19,19 @@ public class MainServer {
 	
 	public MainServer() {
     	DatabaseHelper helper = new DatabaseHelper();
+		System.out.println(getClass());
  
     	try {
-			avatars = helper.readData(new String(Files.readAllBytes(Paths.get("./src/main/resources/AvatarData.txt"))));
+			avatars = helper.readData(new String(Files.readAllBytes(Paths.get("./src/main/resources/katalyst/AvatarData.txt"))));
 		} catch (IOException e) {
-			e.printStackTrace();
+
+			InputStream texts = getClass().getResourceAsStream("./src/main/resources/katalyst/AvatarData.txt");
+			try {
+				avatars = helper.readData(IOUtils.toString(texts,"UTF-8"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			return;
 		}
        	SortModel model = new SortModel(this.avatars);
@@ -60,9 +67,6 @@ public class MainServer {
 	
     public static void main(String[] args) {
     	MainServer server = new MainServer();
-    	System.out.println();
-    	System.out.println("HELLO");
-    	SortModel.printArray(server.eyesSort);
         port(3000);
     	enableCORS("*", "PUT,GET,POST,DELETE,OPTIONS","accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token");
     	
