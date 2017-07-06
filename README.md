@@ -7,3 +7,6 @@ requirement: java SDK 1.8+, Maven 3.0+.
 2. Run `mvn clean` 
 3. Run `mvn package`
 4. Run `java -jar target/avatar-backend-1.0-jar-with-dependencies.jar`
+5. The server will start at http://localhost:3000 
+
+
