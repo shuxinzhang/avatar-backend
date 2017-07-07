@@ -16,7 +16,8 @@ requirement: java SDK 1.8+, Maven 3.0+.
 `GET /avatars/page/:pageNumber`: return the avatar at the specific page(1-10).
 `GET /avatars/page/:pageNumber/sort/:sortFilter` : return the avatar at the specific page(1-10) sorted by a specific feature("eyes","noses","mouths")
 
-# to-dos(backend function support already done, only to write APIs)
+# to-dos 
+(backend function support already done, only to write APIs)
 `POST /avatars/reload` reload the 100 avatars stored from database to 100 new ones.
 `PUT /avatar/:eye/:nose/:mouth/:color` add avatar to index.
 `DELETE /avatar/:eye/:nose/:mouth/:color` Delete a specified avatar.
