@@ -70,16 +70,12 @@ public class MainServer {
         port(3000);
     	enableCORS("*", "PUT,GET,POST,DELETE,OPTIONS","accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token");
     	
-        
-        get("/", (req, res) -> {
-        	return server.eyesSort[0].generateJson();});
         get("/avatar/:index", (req, res) -> { 
         	String index = req.params().get(":index");
         	int i = Integer.parseInt(index);
         	res.type("application/json");
         	res.header("FOO", "bar");
         	JSONObject response = server.avatars[i].generateJson();
-        	System.out.println(response);
         	return response;});
         get("/avatars/page/:page", (req, res) -> { 
         	String Pageindex = req.params().get(":page");
@@ -88,7 +84,6 @@ public class MainServer {
         	for (int j = 0; j < 10; j++) {
         		JSONObject avatar = server.avatars[(i-1)*10+j].generateJson();
         		dataArray.put(avatar);
-        		System.out.println(avatar);
         	}
         	res.type("application/json");
         	res.header("FOO", "bar");
