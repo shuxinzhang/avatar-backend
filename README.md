@@ -9,6 +9,7 @@ requirement: java SDK 1.8+, Maven 3.0+.
 2. Run `mvn clean` 
 3. Run `mvn package`
 4. Run `java -jar target/avatar-backend-1.0-jar-with-dependencies.jar`
+5. The server will start at http://localhost:3000 
 
 ##query currently supported:
 `GET /avatar/:index` return the avatar information with the index(0-99) specified.
@@ -19,3 +20,5 @@ requirement: java SDK 1.8+, Maven 3.0+.
 `POST /avatars/reload` reload the 100 avatars stored from database to 100 new ones.
 `PUT /avatar/:eye/:nose/:mouth/:color` add avatar to index.
 `DELETE /avatar/:eye/:nose/:mouth/:color` Delete a specified avatar.
+
+
